@@ -10,9 +10,9 @@ screwed cluster state or something.
 
 ## Versions
 
-* Mesos 1.0.1
-* Marathon 1.3.0
-* Chronos 2.4.0 (optional)
+* Mesos 1.2.0
+* Marathon 1.4.3
+* Chronos 3.0.2 (optional)
 * Metronome 0.2.0 (optional)
 
 Note that you need `docker-compose` 1.6.0 or newer:
@@ -21,8 +21,7 @@ Note that you need `docker-compose` 1.6.0 or newer:
 
 ## Compatibility
 
-This project should work out of the box with docker machine. It requires
-host networking to work, so docker for mac won't work.
+Host networking is not requried, so Docker for Mac should work as well as Linux version. Docker for Windows is untested.
 
 If you have docker built dynamically, which is the case on most distros,
 you should download and bind-mount statically linked docker client:
@@ -34,18 +33,9 @@ curl -sL https://get.docker.com/builds/Linux/x86_64/docker-1.11.1.tgz | \
 
 This downloads docker 1.11.1 and installs binaries into `/usr/local/bin`.
 
+**Mac users:** download and unpack docker executables for linux into `./bin` directory. Please make sure that you downloaded the same version of docker as your Docker for Mac has.
+
 ## Usage
-
-You have to specify `DOCKER_IP` env variable in order to make Mesos work
-properly. The default value is `127.0.0.1` and it should work if you have
-Docker daemon running locally.
-
-If you use `docker-machine` you can do the following, assuming `dev` is your
-machine's name:
-
-```
-export DOCKER_IP=$(docker-machine ip dev)
-```
 
 Run your cluster in the background (equivalent to `docker-compose up -d`):
 
