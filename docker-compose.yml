@@ -51,8 +51,7 @@ services:
     ports:
       - 5051:5051
     volumes:
-      # Workaround for mac: download and link docker executable
-      - ./bin/docker:/usr/bin/docker
+      - /bin/docker:/usr/bin/docker
       - /tmp/mesos:/tmp/mesos
       - /sys/fs/cgroup:/sys/fs/cgroup
       - /var/run/docker.sock:/var/run/docker.sock
